@@ -1,0 +1,42 @@
+<p-dialog header="Edit details" [(visible)]="display" (onHide)="onClose()" [width]="700" [height]="700">
+  <div *ngIf="doctor" class="details ui-g">
+    <div class="ui-g-12">
+      <div class="ui-g-4">
+        Doctor name
+      </div>
+      <div class="ui-g-8">
+        <div class="ui-inputgroup">
+          <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
+          <input type="text" pInputText placeholder="Username" [(ngModel)]="doctor.name">         
+        </div>
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <div class="ui-g-4">
+        City
+      </div>
+      <div class="ui-g-8">
+          <p-dropdown [styleClass]="'select'" [options]="cities" [(ngModel)]="doctor.city" optionLabel="name" placeholder="City"></p-dropdown>
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <div class="ui-g-4">
+        Profession
+      </div>
+      <div class="ui-g-8">
+          <p-dropdown [styleClass]="'select'" [options]="professions" [(ngModel)]="doctor.profession" optionLabel="name" placeholder="Profession"></p-dropdown>
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <div class="ui-g-4">
+        Rating
+      </div>
+      <div class="ui-g-8">
+        <p-rating [(ngModel)]="doctor.rating" [cancel]="false"></p-rating>
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <p-button label="Save" (click)="onSave()"></p-button>
+    </div>
+  </div>
+</p-dialog>
