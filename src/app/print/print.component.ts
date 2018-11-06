@@ -17,15 +17,13 @@ export class PrintComponent implements OnDestroy {
   constructor(private renderer: Renderer2) {
     this.stopListening =
       renderer.listen('window', 'message', this.handleMessage.bind(this));
+      window.opener.postMessage('opened', window.location.href);
   }
 
   handleMessage(event: any) {
     console.log(event);
 
-    if (!this.connection) {
-      window.opener.postMessage('opened', window.location.href);
-      this.connection = true;
-    } else {
+    if (event.data.name) {
       this.doc = event.data;
       console.log(this.doc);
     }

@@ -118,7 +118,6 @@ export class DashboardComponent implements OnDestroy  {
       window.alert('Please disable your Pop-up blocker and try again.');
     } else {
       this.stopListening = this.renderer.listen('window', 'message', this.handleMessage.bind(this));
-      print.postMessage('ready?', window.location.href);
     }
   }
 
