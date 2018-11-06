@@ -1,0 +1,5 @@
+@media print {
+    :host /deep/ .print {
+        display: none !important;
+    }
+}
